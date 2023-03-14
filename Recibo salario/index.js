@@ -86,9 +86,6 @@ function validarCampos() {
     return true;
 }
 
-
-
-
 function validaCpf(cpf){
     if ( !cpf || cpf.length != 11
             || cpf == "00000000000"
@@ -217,11 +214,8 @@ function writeModal() {
     document.getElementById("cpf_cnpjWrite").textContent = cpfCnpj.length > 14 ? "CNPJ: " + cpfCnpj : "CPF: " + cpfCnpj;
     document.getElementById("cidadeWrite").textContent = cidade;
     document.getElementById("dataWrite").textContent = data.getDate() + " de " + capitalize(data.toLocaleString("pt-br", { month: "long" })) + " de " + data.getFullYear();
-    // document.getElementById("chaveWrite").textContent = chave;
     document.getElementById("assinaturaWrite").textContent = empregado;
 }
-
-
 
 function converter() {
     let valor = document.getElementById("valor").value;
