@@ -1,0 +1,178 @@
+* {
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    color: #000000;
+}
+
+.container .row {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.container .row .col-1 {
+    flex: 100%;
+    
+}
+
+.container .row .col-2 {
+    flex: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0px;
+}
+
+
+input[type=text], input[type=date] {
+    background-color: #ececec;
+    color: black;
+    border: 1px solid #dfdddd;
+    border-radius: 5px;
+    outline: none;
+    width: 99%;
+    line-height: 40px;
+    box-sizing: content-box;
+    padding-left: 5px;
+}
+
+input[type=checkbox], input[type=radio] {
+    outline: none;
+    margin: 0;
+}
+
+.label {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+}
+
+.label-radio {
+    font-weight: 400;
+    margin: 10px;
+}
+
+
+
+
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+span {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+p1 {
+    color: #8b8a8a;
+    font-size: 12px;
+}
+
+p2 {
+    padding-left: 80%;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+button[type=submit], button[type=button] {
+    background-color: cornflowerblue;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    padding-top: 2px;
+    display: inline-flex;
+    padding: 10px;
+}
+
+.img-contrast {
+    width: 35px;
+}
+
+
+
+.img-button {
+    width: 35px;
+    filter: invert(1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    padding-top: 10%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #ffffff;
+    margin: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 15px;
+    width: 80%;
+    box-shadow: 0 8px 16px 0;
+    animation-name: animastop;
+    animation-duration: 0.4s;
+}
+
+
+
+.row-chave {
+    display: none;
+}
+
+.span-write {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.span-write-valor {
+    border-style: groove;
+    width: 200px;
+    text-align: center;
+    float: right;
+}
+
+.span-write-valor-1 {
+    border-style: groove;
+    width: 200px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.span-write-data {
+    text-align: left;
+}
+
+.assinatura-line {
+    border-bottom: 4px groove;
+    width: 400px;
+}

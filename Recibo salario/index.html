@@ -1,0 +1,183 @@
+<html>
+<head>
+    <title>Recibo Salário</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <meta name="description" content="Recibo de Salario">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Pedro Henrique Santos Kusiak">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/numero-por-extenso/dist/index.min.js"></script>
+
+</head>
+<body class="white-theme" onload="mostrarDataAtual()">
+
+
+
+<div class="center">
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                <h2 id="titulo">Recibo de Salário</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <label class="label" for="valor">Valor</label>
+                <input  datatype="currencyFormat" type="text" id="valor" placeholder="00,00" oninput="onlyNumbers('valor')" onchange="currencyFormat()" required>
+                <p1>Valor recebido</p1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <label class="label" for="empregado">Empregado</label>
+                <input  type="text" id="empregado" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <label class="label" for="aTituloDe">À título de</label>
+                <input  type="text" id="aTituloDe" required>
+                <p1>Ex: Adiantamento salarial, assitência médica, odontológica, etc.</p1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <label class="label" for="remuneracaoMensal">Remuneração mensal relativa a folha do mês</label>
+                <input  type="text" id="remuneracaoMensal" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <label class="label" for="empregador">Empregador</label>
+                <input  type="text" id="empregador" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <label class="label" for="cpf_cnpj">CPF ou CNPJ</label>
+                <input  type="text" id="cpf_cnpj" placeholder="00000000000" maxlength="14"
+                       oninput="onlyNumbers('cpf_cnpj')" onchange="cpfCnpjFormat()" required>
+                <p1>Somente números</p1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <label class="label" for="cidade">Cidade</label>
+                <input  type="text" id="cidade" required>
+            </div>
+            <div class="col-2">
+                    <label class="label" for="data">Data</label>
+                    <input type="date" id="data" onload="mostrarDataAtual()" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <label class="label">Forma de Pagamento</label>
+
+            <input id="dinheiro" type="radio" name="radio-button" value="Dinheiro" onclick="radioSelected(dinheiro)">
+            <label class="label-radio" for="dinheiro">Dinheiro</label>
+
+            <input id="pix" type="radio" name="radio-button" value="PIX" onclick="radioSelected(pix)">
+            <label class="label-radio" for="pix">PIX</label>
+
+            <input id="cheque" type="radio" name="radio-button" value="Cheque" onclick="radioSelected(cheque)">
+            <label class="label-radio" for="cheque">Cheque</label>
+
+            <input id="tranferenciaDeposito" type="radio" name="radio-button" value="Transferência/Depósito"
+                   onclick="radioSelected(tranferenciaDeposito)">
+            <label class="label-radio" for="tranferenciaDeposito">Transferência/Depósito</label>
+        </div>
+
+        <div class="row-chave">
+            <div class="row">
+                <label class="label" for="chave">Chave</label>
+                <input class="white-theme" type="text" id="chave">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <label class="label" for="duasVias">Duas Vias?</label>
+                <input id="duasVias" type="checkbox">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1 center">
+                <button type="submit" onclick="openModal(), converter()"><img class="img-button"
+                                                                src="https://cdn-icons-png.flaticon.com/512/2521/2521610.png"
+                                                                alt="arquivo png"/>Gerar Recibo
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="text-align: center; font-size: 15px; padding-top: 10px;">
+    <a href="https://reciboonline.com.br/recibo-pagamento-salario" target="_blank">ReciboOnline.com.br</a>
+</div>
+
+<div id="modal" class="modal">
+    <button style="margin-left: 200px;" type="button" class="btn btn-secondary" data-dismiss="modal" onclick="fecharModal()">Fechar</button>
+    <div class="modal-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-1">
+                    <h3>Recibo de Salário</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1">
+                    <p>
+                        <span id="valorWrite" class="span-write span-write-valor"></span>
+                    </p>
+
+                    <p>
+                        Eu, <span id="empregadoWrite" class="span-write"></span>
+                    </p>
+
+                    <p>
+                        Declaro para todos os efeitos, ter recebido a título de <span id="aTituloDeWrite" class="span-write"></span> a importância de:
+                    <p>
+                        <input class="span-write-valor-1" type="text" id="extensoWrite" name="extensoWrite" readonly></input>
+                    </p>
+                        e em concordância com o disposto no Art. 462, da CLT, tenho plena consciência de que o respectivo
+                        valor será descontado, pelo empregador: <span id="empregadorWrite" class="span-write"></span>, <span id="cpf_cnpjWrite" class="span-write"></span>, do pagamento da minha remuneração mensal relativa à folha do mês
+                        de <span id="remuneracaoMensalWrite" class="span-write"></span> e incidindo na base de cálculo de encargos sociais e fiscais para todos os efeitos legais.
+                    </p>
+                    <br>
+                    <p>
+                        <span id="cidadeWrite" class="span-write"></span>, <span id="dataWrite" class="span-write"></span>
+                    </p>
+                    <br><br><br>
+                    <p class="center">
+                        <span class="assinatura-line"></span>
+                    </p>
+                    <p class="center">
+                        <span id="assinaturaWrite" class="span-write"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1 center">
+                    <button type="button" onclick="window.print()"><img class="img-button"
+                                                                        src="https://cdn-icons-png.flaticon.com/512/126/126489.png"
+                                                                        alt="icon print">Imprimir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
