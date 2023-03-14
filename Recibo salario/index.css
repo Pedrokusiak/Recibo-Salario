@@ -33,7 +33,6 @@
     margin: 0px;
 }
 
-
 input[type=text], input[type=date] {
     background-color: #ececec;
     color: black;
@@ -63,10 +62,6 @@ input[type=checkbox], input[type=radio] {
     font-weight: 400;
     margin: 10px;
 }
-
-
-
-
 
 .center {
     display: flex;
@@ -105,12 +100,6 @@ button[type=submit], button[type=button] {
     padding: 10px;
 }
 
-.img-contrast {
-    width: 35px;
-}
-
-
-
 .img-button {
     width: 35px;
     filter: invert(1);
@@ -143,8 +132,6 @@ button[type=submit], button[type=button] {
     animation-duration: 0.4s;
 }
 
-
-
 .row-chave {
     display: none;
 }
@@ -176,3 +163,12 @@ button[type=submit], button[type=button] {
     border-bottom: 4px groove;
     width: 400px;
 }
+
+ @media screen and (max-width: 790px) {
+    .box{
+        width: 100%;
+    } 
+    .formulario{
+        width: 100%;
+    }
+ }
